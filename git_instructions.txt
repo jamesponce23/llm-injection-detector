@@ -1,0 +1,66 @@
+GIT INSTRUCTIONS — llm-injection-detector
+==========================================
+Repo: https://github.com/jamesponce23/llm-injection-detector
+
+
+DAILY WORKFLOW
+--------------
+1. Navigate to the project and activate the environment:
+   injector
+
+2. Make your changes to any files.
+
+3. Run the test suite to make sure nothing broke:
+   ./llm-prompt-injector.sh
+
+4. Stage, commit, and push your changes:
+   git add <filename>        (stage a specific file)
+   git add .                 (stage all changed files)
+   git commit -m "your message here"
+   git push
+
+
+CHECKING STATUS
+---------------
+git status                   see what files have changed
+git diff                     see exactly what changed line by line
+git log --oneline            see commit history
+
+
+COMMON SITUATIONS
+-----------------
+Pushed something wrong?
+   git revert HEAD           creates a new commit that undoes the last one
+   git push
+
+Want to undo local changes before committing?
+   git restore <filename>    throws away unsaved changes to a file
+
+Want to unstage a file you accidentally added?
+   git restore --staged <filename>
+
+Check what's on GitHub vs local:
+   git fetch
+   git status
+
+
+VIRTUAL ENVIRONMENT
+-------------------
+Enter the project environment from anywhere:
+   injector
+
+Exit the environment:
+   deactivate
+
+Run tests:
+   ./llm-prompt-injector.sh
+
+Run tests for a specific attack type only:
+   ./llm-prompt-injector.sh -k "Jailbreak"
+
+
+NOTES
+-----
+- Never commit the .venv folder (it is already in .gitignore)
+- The GitHub repo is public — do not commit secrets or API keys
+- Python version on this machine: 3.10.12
